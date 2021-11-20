@@ -1,0 +1,6 @@
+/dir/        directory
+:txt/        simple file
+!exe/        executable
+@lnk/        soft link
+~ ~ ~        end of content
+\            end of directory list
