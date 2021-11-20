@@ -4,8 +4,12 @@ import pathlib
 
 
 class Archive:
-    def __init__(self, content=None):
+    def __new__(cls, content):
+        if not isinstance(content, dict):
+            return Archive.load(content)
+        self = super().__new__(cls)
         self.content = content
+        return self
 
     def __repr__(self):
         return f"Archive({self.content})"
@@ -25,6 +29,13 @@ class Archive:
     def from_directory(dir_path):
         name, nodes = read_directory(dir_path)
         return Archive(nodes)
+
+    @staticmethod
+    def load(path):
+        path = pathlib.Path(path)
+        if path.is_dir():
+            return Archive.from_directory(path)
+        return Archive.from_bytes(path.read_bytes())
 
 
 def write_node(path, content):
