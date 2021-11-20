@@ -17,6 +17,9 @@ class Archive:
     def to_bytes(self):
         return b"a7d8473\n" + encoder.encode_nodes(self.content)
 
+    def save(self, path):
+        return pathlib.Path(path).write_bytes(self.to_bytes())
+
     def to_directory(self, dir_path):
         return write_directory(dir_path, self.content)
 
