@@ -5,7 +5,7 @@ with open("../readme.md", "r") as f:
 
 setuptools.setup(
     name="a7d",
-    version="0.0.1",
+    version="0.0.2",
     author="Uladzislau Khamkou",
     description="a7d8473 archiver",
     long_description=long_description,
