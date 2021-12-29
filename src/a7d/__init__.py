@@ -54,7 +54,7 @@ def write_node(path, content):
 
 def write_directory(path, nodes):
     path = pathlib.Path(path)
-    path.mkdir()
+    path.mkdir(parents=True, exist_ok=True)
     for name, node in nodes.items():
         write_node(path / name.decode(), node)
 
