@@ -7,7 +7,7 @@ setuptools.setup(
     name="a7d",
     version="0.0.3",
     author="Uladzislau Khamkou",
-    description="cool plain text archiver",
+    description="cool plaintext archiver",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
