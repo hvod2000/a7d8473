@@ -4,12 +4,12 @@ import pathlib
 
 
 class Archive:
-    def __new__(cls, content):
-        if not isinstance(content, dict):
-            return Archive.load(content)
-        self = super().__new__(cls)
+    def __init__(self, content):
+        if isinstance(content, Archive):
+            content = content.content
+        elif not isinstance(content, dict):
+            content = Archive.load(content).content
         self.content = content
-        return self
 
     def __repr__(self):
         return f"Archive({self.content})"
@@ -22,6 +22,9 @@ class Archive:
 
     def to_directory(self, dir_path):
         return write_directory(dir_path, self.content)
+
+    def iterdir(self):
+        yield from ((n.decode(), Archive(c)) for n, c in self.content.items())
 
     @staticmethod
     def from_bytes(bts):
