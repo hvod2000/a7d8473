@@ -1,0 +1,6 @@
+dir/	- directory
+txt	- simple file
+/exe	- executable
+ln/t	- soft link
+$	- end of file content
+	- end of directory list
