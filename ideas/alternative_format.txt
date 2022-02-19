@@ -4,3 +4,7 @@ txt	- simple file
 ln/t	- soft link
 $	- end of file content
 	- end of directory list
+
+Ok, the above requires encoding of filenames. I don't like it.
+However we still can use "$ \n" as the end of file content.
+Also we can store link content as file content for consistency.
